@@ -284,7 +284,7 @@ Partclone 开始克隆分区，进度到 100% 即该分区完成，如图 27 所
 
 - 方法一：`1.Auto(Restore)` 一键还原
 
-    镜像必须已经在 U 盘的 `/home/partimag/` 下（即图 34）。默认项就是 `1.Auto(Restore)`，直接回车`Enter`即可。Auto 会跳过第 2 节的挂载和选模式，找到镜像后进入选镜像界面（图 36）。若该路径下没有镜像，会报错退出，见图 45。
+    镜像必须已经在 U 盘的 `/home/partimag/` 下（即图 34）。默认项就是 `1.Auto(Restore)`，直接回车`Enter`即可。Auto 会跳过第 2 节的挂载和选模式，找到镜像后进入选镜像界面（图 36）。若该路径下没有镜像，会报错退出，见图 44。
 
 - 方法二：`2.live` 手动还原
 
@@ -356,6 +356,6 @@ Partclone 开始按分区还原。先还原 EFI 分区（`nvme0n1p1`，体积小
 需要将再生龙导出的镜像文件夹，放到U盘中`/home/partimag/`路径下，才会找到镜像文件
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_033.jpeg" alt="图45" style="max-width:100%">
-<p>图45</p>
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_033.jpeg" alt="图44" style="max-width:100%">
+<p>图44</p>
 </div>
