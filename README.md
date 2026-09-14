@@ -261,9 +261,11 @@ Partclone 开始克隆分区，进度到 100% 即该分区完成，如图 27 所
 <p>图33</p>
 </div>
 
-将这一整个文件夹，拷贝到`/home/partimag/`路径下
+将这一整个文件夹，拷贝到`/home/partimag/`路径下。这一步是给方法一 `1.Auto` 用的；
 
-这个文件夹可以本机备份一份，然后将根路径的文件夹删掉，U盘内只留`/home/partimag/`路径下的镜像，节省空间
+若走方法二 `2.live`，且和第 2 节一样把仓库挂在 U 盘根目录，根目录里的镜像也能被 `restoredisk` 看到，不必先拷。
+
+这里执行的是拷贝镜像文件到`/home/partimag/`路径下的操作。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_035.png" alt="图34" style="max-width:100%">
