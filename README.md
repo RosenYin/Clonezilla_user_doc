@@ -190,7 +190,7 @@ BIOS 中将再生龙 U 盘第一启动项（Boot Option #1），保存退出后�
 <p>图24</p>
 </div>
 
-屏幕下方会列出备份操作完成后，会执行什么命令，核对源盘和镜像名后按`Enter`继续，如图 25 所示。
+屏幕下方会列出本次即将执行的完整命令。核对其中的源盘和镜像名无误后按`Enter`继续，如图 25 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_025.jpeg" alt="图25" style="max-width:100%">
