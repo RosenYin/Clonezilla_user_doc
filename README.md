@@ -99,14 +99,14 @@ BIOS 中将再生龙 U 盘第一启动项（Boot Option #1），保存退出后�
 <p>图11</p>
 </div>
 
-进入目录浏览器后，方向键选择`ABORT`使用 U 盘根目录。不要选标有 `CZ_IMG` 的已有镜像目录，如图 12 所示。
+进入目录浏览器后，当前目录已是 `/`（U 盘根目录）。选 `ABORT` 表示退出浏览器并沿用当前目录。不要选标有 `CZ_IMG` 的已有镜像目录，如图 12 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_012.jpeg" alt="图12" style="max-width:100%">
 <p>图12</p>
 </div>
 
-上下键选择目录确认无误后，按`Tab`键，然后方向键 选 `<Done>`，然后`Enter`回车，如图 13 所示。
+目录确认无误后，按`Tab`键，然后方向键 选 `<Done>`，然后`Enter`回车，如图 13 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_013.jpeg" alt="图13" style="max-width:100%">
