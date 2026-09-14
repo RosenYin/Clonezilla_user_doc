@@ -20,7 +20,7 @@ BIOS 中将再生龙 U 盘第一启动项（Boot Option #1），保存退出后�
 <p>图2</p>
 </div>
 
-进入该镜像后，会弹出 GRUB 菜单。默认项 `1.Auto(Restore)` 为自动还原，3s后自动选择第一项，制作镜像请不要直接回车，方向键选择另一项，如图 3 所示。
+进入该镜像后，会弹出 GRUB 菜单。默认项 `1.Auto(Restore)` 为自动还原，3s内若不操作会自动选择第一项。制作镜像请不要直接回车，方向键选择另一项，如图 3 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_003.png" alt="图3" style="max-width:100%">
