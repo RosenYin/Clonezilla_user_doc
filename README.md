@@ -233,7 +233,7 @@ Partclone 开始克隆分区，进度到 100% 即该分区完成，如图 27 所
 <p>图29</p>
 </div>
 
-方向键选 `reboot 重新开机`，回车`Enter`确定，图 30 所示。
+方向键选 `reboot 重新开机`，回车`Enter`确定，如图 30 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_030.jpeg" alt="图30" style="max-width:100%">
@@ -247,7 +247,7 @@ Partclone 开始克隆分区，进度到 100% 即该分区完成，如图 27 所
 <p>图31</p>
 </div>
 
-重启过程中要记得按进入BIOS的按键(delete或者其它)，，把第一启动项改回系统盘，保存退出后，系统会进入到被备份的系统中。
+重启过程中要记得按进入BIOS的按键(delete或者其它)，把第一启动项改回系统盘，保存退出后，系统会进入到被备份的系统中。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_032.jpeg" alt="图32" style="max-width:100%">
@@ -335,7 +335,7 @@ Partclone 开始按分区还原。先还原 EFI 分区（`nvme0n1p1`，体积小
 <p>图41</p>
 </div>
 
-还原完成后方向键选 `1 重新开机`，回车`Enter`确定，不要选 `2 进入命令列`。确认后会卸载挂载的盘并倒计时重启，如图 42所示。
+还原完成后方向键选 `1 重新开机`，回车`Enter`确定，不要选 `2 进入命令列`。确认后会卸载挂载的盘并倒计时重启，如图 42 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_008.jpeg" alt="图42" style="max-width:100%">
