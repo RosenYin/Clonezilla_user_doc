@@ -4,7 +4,7 @@
 
 ## 1 制作再生龙镜像U盘
 
-使用 rufus 写入工具，将“再生龙v3.0.1-8-快速还原.iso” 镜像文件写入U盘，分区类型选择 GPT，其它默认，烧录过程中可能会失败，多重复尝试几次，如图 1 所示。
+使用 rufus 写入工具，将“再生龙v3.0.1-8-快速还原.iso” 镜像文件写入U盘。分区类型选择 GPT，文件系统选择 NTFS（后续要把镜像保存在这张盘上，不要用 FAT32），其它可保持默认。烧录过程中可能会失败，多重复尝试几次，如图 1 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/rufus.png" alt="图1" style="max-width:100%">
@@ -71,6 +71,8 @@ BIOS 中将再生龙 U 盘第一启动项（Boot Option #1），保存退出后�
 系统扫描磁盘。确认能看到系统盘（如 `nvme0n1`）和 U 盘（如 `sda`）后，
 
 按`Ctrl+c`切回主窗口继续，如图 9 所示。
+
+本例扫描到的 U 盘是 62.9GB 的 Fanxiang（`sda`），与图 1 制作启动盘时截到的 16GB 盘不是同一块；后文保存镜像用的是这块容量更大的盘，尽量用大容量的U盘。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_009.jpeg" alt="图9" style="max-width:100%">
