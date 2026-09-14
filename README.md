@@ -162,7 +162,7 @@ BIOS 中将再生龙 U 盘第一启动项（Boot Option #1），保存退出后�
 <p>图20</p>
 </div>
 
-源分区检查选 `-sfck`（跳过 fsck），方向键选择，回车`Enter`确定，如图 21 所示。
+源分区检查选 `-sfsck`（跳过 fsck），方向键选择，回车`Enter`确定，如图 21 所示。
 
 <div align="center">
 <img src="./Linux镜像导出以及恢复_img/linux_dragon_021.jpeg" alt="图21" style="max-width:100%">
@@ -255,8 +255,8 @@ Partclone 开始克隆分区，进度到 100% 即该分区完成，如图 27 所
 刚才制作的镜像文件，如果名字没有自定义的话，保存的路径以及名称如图所示，示例名称为`2026-09-10-06-img`，路径在U盘根路径下
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_034.png" alt="图34" style="max-width:100%">
-<p>图34</p>
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_034.png" alt="图33" style="max-width:100%">
+<p>图33</p>
 </div>
 
 将这一整个文件夹，拷贝到`/home/partimag/`路径下
@@ -264,74 +264,79 @@ Partclone 开始克隆分区，进度到 100% 即该分区完成，如图 27 所
 这个文件夹可以本机备份一份，然后将根路径的文件夹删掉，U盘内只留`/home/partimag/`路径下的镜像，节省空间
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_035.png" alt="图35" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_035.png" alt="图34" style="max-width:100%">
+<p>图34</p>
+</div>
+
+拷贝成功后，插入到想要烧录镜像的电脑。目标电脑同样在 BIOS 中将再生龙 U 盘设为第一启动项（见图 2），启动后出现 GRUB 菜单，进入后回车`Enter`选 `1.Auto(Restore)`，如图 35。
+
+以下是对两个选项在本节的描述，实际上两个选项都可以走到选镜像（图 36）那一步：
+
+- 方法一：`1.Auto(Restore)` 一键还原
+
+    镜像必须已经在 U 盘的 `/home/partimag/` 下（即图 34）。默认项就是 `1.Auto(Restore)`，直接回车`Enter`即可。Auto 会跳过第 2 节的挂载和选模式，找到镜像后进入选镜像界面（图 36）。若该路径下没有镜像，会报错退出，见图 45。
+
+- 方法二：`2.live` 手动还原
+
+    方向键选 `2.live(Restore and Backup)`，回车`Enter`进入。从启动再生龙到选定模式之前，选项与第 2 节备份相同；到选定模式时改选 `restoredisk`（还原镜像到本机硬盘），如图 17。之后与方法一汇合，同样进入选镜像、选目标盘等界面（从图 36 起）。
+
+本节在前面的操作中已经拷贝img文件夹到`/home/partimag/`下，因此选择第一项即可。
+
+<div align="center">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_003.png" alt="图35" style="max-width:100%">
 <p>图35</p>
 </div>
 
-拷贝成功后，插入到想要烧录镜像的电脑。目标电脑同样在 BIOS 中将再生龙 U 盘设为第一启动项（见图 2），进入后回车`Enter`选 `1.Auto(Restore)`，如图 36。
-
-(如果方向键选`2.live`，回车`Enter`确定，则在选择模式之前所有的设定，与第二节备份镜像的选项相同，直到到选定模式时改选 `restoredisk`还原镜像到本机硬盘，如图 17)。
+上下键选择刚才拷贝的镜像文件夹（本例 `2026-09-10-06-img`，只有一个镜像文件，直接回车`Enter`即可），回车`Enter`确定，如图 36 所示。
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_003.png" alt="图36" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_001.jpeg" alt="图36" style="max-width:100%">
 <p>图36</p>
 </div>
 
-上下键选择刚才拷贝的镜像文件夹（本例 `2026-09-10-06-img`，只有一个镜像文件，直接回车`Enter`即可），回车`Enter`确定，如图 37 所示。
+方向键选择要写入的目标硬盘（本例 `nvme0n1`，仅一个目标盘，直接回车`Enter`即可），回车`Enter`确定。该盘现有资料会被覆盖，确认型号和容量无误后再继续，如图 37 所示。
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_001.jpeg" alt="图37" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_002.jpeg" alt="图37" style="max-width:100%">
 <p>图37</p>
 </div>
 
-方向键选择要写入的目标硬盘（本例 `nvme0n1`，仅一个目标盘，直接回车`Enter`即可），回车`Enter`确定。该盘现有资料会被覆盖，确认型号和容量无误后再继续，如图 38 所示。
+屏幕下方会连续两次弹出黄色警告：目标盘资料将被完全盖掉。核对镜像名和目标盘后，两次都输入 `y` 回车，如图 38、图 39 所示。
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_002.jpeg" alt="图38" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_003.jpeg" alt="图38" style="max-width:100%">
 <p>图38</p>
 </div>
 
-屏幕下方会连续两次弹出黄色警告：目标盘资料将被完全盖掉。核对镜像名和目标盘后，两次都输入 `y` 回车，如图 39、图 40 所示。
-
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_003.jpeg" alt="图39" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_004.jpeg" alt="图39" style="max-width:100%">
 <p>图39</p>
 </div>
 
+Partclone 开始按分区还原。先还原 EFI 分区（`nvme0n1p1`，体积小，很快完成），再还原系统分区（`nvme0n1p2`，耗时较长，进度条会停在这一步），如图 40、图 41 所示。等到两个分区都到 100% 即可。
+
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_004.jpeg" alt="图40" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_005.jpeg" alt="图40" style="max-width:100%">
 <p>图40</p>
 </div>
 
-Partclone 开始按分区还原。先还原 EFI 分区（`nvme0n1p1`，体积小，很快完成），再还原系统分区（`nvme0n1p2`，耗时较长，进度条会停在这一步），如图 41、图 42 所示。等到两个分区都到 100% 即可。
-
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_005.jpeg" alt="图41" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_006.jpeg" alt="图41" style="max-width:100%">
 <p>图41</p>
 </div>
 
+还原完成后方向键选 `1 重新开机`，回车`Enter`确定，不要选 `2 进入命令列`。确认后会卸载挂载的盘并倒计时重启，如图 42所示。
+
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_006.jpeg" alt="图42" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_008.jpeg" alt="图42" style="max-width:100%">
 <p>图42</p>
 </div>
 
-还原完成后方向键选 `1 重新开机`，回车`Enter`确定，不要选 `2 进入命令列`。确认后会卸载仓库并倒计时重启，如图 43、图 44 所示。重启后进入 BIOS，把第一启动项改回系统盘，即可进入刚还原的系统。
+重启过程中要记得按进入BIOS的按键(delete或者其它)，把第一启动项改回系统盘，如图 43，保存退出后，系统会进入到被备份的系统中。
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_007.jpeg" alt="图43" style="max-width:100%">
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_032.jpeg" alt="图43" style="max-width:100%">
 <p>图43</p>
-</div>
-
-<div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_restore_008.jpeg" alt="图44" style="max-width:100%">
-<p>图44</p>
-</div>
-
-重启过程中要记得按进入BIOS的按键(delete或者其它)，把第一启动项改回系统盘，如图 45，保存退出后，系统会进入到被备份的系统中。
-
-<div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_032.jpeg" alt="图45" style="max-width:100%">
-<p>图45</p>
 </div>
 
 ## 问题解决
@@ -341,6 +346,6 @@ Partclone 开始按分区还原。先还原 EFI 分区（`nvme0n1p1`，体积小
 需要将再生龙导出的镜像文件夹，放到U盘中`/home/partimag/`路径下，才会找到镜像文件
 
 <div align="center">
-<img src="./Linux镜像导出以及恢复_img/linux_dragon_033.jpeg" alt="图33" style="max-width:100%">
-<p>图33</p>
+<img src="./Linux镜像导出以及恢复_img/linux_dragon_033.jpeg" alt="图45" style="max-width:100%">
+<p>图45</p>
 </div>
